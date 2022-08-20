@@ -6,7 +6,7 @@ const API_URL = BASE_URL + PATH + API_KEY
 const IMG_URL = "https://image.tmdb.org/t/p/w500/"
 //uri = `https://api.themoviedb.org/3/movie/top_rated?api_key=d6a2eaa89f6e447e46a5e5b448985ae0&languaje=es-ES&page=${page}`
 
-const container = document.getElementById('container');
+//const container = document.getElementById('container');
 
 const genres = [
     {
@@ -134,21 +134,22 @@ btnBefore.addEventListener('click', () => {
         data.forEach(movie => {
             const {title, poster_path, vote_average, overview} = movie
            const movieEl = document.createElement('div'); 
-           movieEl.classList.add('movie')
+           //movieEl.classList.add('movie')
            movieEl.innerHTML = `
-           <div class="movie card">
-		   <div class="imgBx">
-			<img src="${IMG_URL + poster_path}" alt="${title}">
-		   </div>
-		  <div class="content">
-           <h2 class="title">${title}</h2>
-		   <span class="${getcolor(vote_average)}">${vote_average}</span>
-		   <p>${overview}</p>
-		  </div>
-		</div>
+           <div class="card">
+    <div class="face front">
+       <div class="image"> 
+        <img src="${IMG_URL + poster_path}" alt="">
+      </div>
+        <h3>${title}</h3>
+    </div>
+    <div class="face back">
+        <h3>${title}</h3>
+        <p>${overview}</p>
+    </div>
+   </div> 
            `
-
-           container.appendChild(movieEl);
+          container.appendChild(movieEl);
         });
      };
 
@@ -162,4 +163,11 @@ btnBefore.addEventListener('click', () => {
            }
      }
 
-    
+    /* <div class="card">
+				<div class="imgBx">
+					<img src="${IMG_URL + poster_path}" alt="" >
+				</div>
+				<div class="content">
+					<h2>${title}</h2>
+					<p>${overview}</p>
+				</div>*/ 
